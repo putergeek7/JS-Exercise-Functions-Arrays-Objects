@@ -84,6 +84,7 @@ function getName(personInfo) {
  *         and returns a string like `Hello, my name is {name}`.
  *         where `{name}` is the name passed into `makeSmartPerson`.
  */
+
 function makeSmartPerson(name) {
   return {
     name: name,
@@ -91,14 +92,11 @@ function makeSmartPerson(name) {
       return num1 + num2;
     },
     speak: function () {
-      return `Hello, my name is ${makeSmartPerson.name}`;
+      return `Hello, my name is ${name}`;
     }
   }
+    console.log(makeSmartPerson('Gandhi'));
 }
-
-console.log(makeSmartPerson.name);
-console.log(makeSmartPerson("Aksha"));
-
 
 
 /*
@@ -131,12 +129,14 @@ var inventory = [
  *
  * NOTE: This example has been completed for you.
  **/
+
 function get3rdCar(inventory) {
   const the3rd = inventory.find((item, index) => {
     return index === 2 // we use 2 because index is zero-based.
   })
   return `The car is a ${the3rd.car_make} ${the3rd.car_model}`
 }
+
 
 // 👇 COMPLETE YOUR WORK BELOW 👇
 // 👇 COMPLETE YOUR WORK BELOW 👇
@@ -156,11 +156,8 @@ function get3rdCar(inventory) {
  * it will return `This is a Lincoln Navigator`.
  */
 function getCarInfoByIndex(inventory, index) {
-  const object = inventory[index];
-  return `This is a ${object.car_make} ${object.car_model}`;
+  return `this is a   ${inventory[index].car_make} ${inventory[index].car_model}`
 }
-
-console.log(getCarInfoByIndex);
 
 
 /**
@@ -214,11 +211,8 @@ console.log(getCarInfoById);
  */
 
 function sortCarInventory(inventory) {
-  return inventory.sort();
+  return inventory.sort((a, b)=>((a.car_model > b.car_model) ? 1 : (a.car_model < b.car_model) ? -1 : 0))
 }
-
-// console.log(s);
-
 
 /**
  * ### Challenge `getModelYears`
@@ -231,11 +225,12 @@ function sortCarInventory(inventory) {
  */
 
 function getModelYears(inventory) {
-  inventory.car_year();
+  let year = [];
+  for(let i = 0; i < inventory.length; i++) {
+  year.push(inventory[i].car_year);
 }
-
-console.log(getModelYears);
-
+return year; 
+}
 
 /**
  * ### Challenge `getOlderCars`
@@ -249,8 +244,15 @@ console.log(getModelYears);
  * with a `car_year` which is at most the given desired max year,
  * in the same order as they appear in the original inventory.
  */
-function getOlderCars(inventory, item) {
-  /* code here */
+
+function getOlderCars(inventory, year) {
+  let newArr = []; 
+  for(let i = 0; i < inventory.length; i++){
+    if (inventory[i].car_year <= year) {
+      newArr.push(inventory[i]);
+    }
+  }
+    return newArr; 
 }
 
 /**
@@ -264,9 +266,22 @@ function getOlderCars(inventory, item) {
  * made by either `Audi` or `Mercedes-Benz` or `Volkswagen` or `BMW`,
  * in the same order as they appear in the original inventory.
  */
-function getGermanCars( /* code here */ ) {
-  /* code here */
+
+
+function getGermanCars(inventory) {
+  let newArr = [];
+  for(let i = 0; i < inventory.length; i++){
+    if (inventory[i].car_make === 'Audi'||
+        inventory[i].car_make === 'Mercedes-Benz'||
+        inventory[i].car_make === 'Volkswagen'||        
+        inventory[i].car_make === 'BMW')
+        {
+          newArr.push(inventory[i]);
+        }
+      }
+    return newArr; 
 }
+
 
 /**
  * ### Challenge refactor to arrow functions
@@ -286,9 +301,13 @@ function getGermanCars( /* code here */ ) {
  *   return num * 2
  * }
  */
-const sum = null; // code here!
-const addFive = null; // code here!
-const argTimesTwo = null; // code here!
+// const sum = null; // code here!
+// const addFive = null; // code here!
+// const argTimesTwo = null; // code here!
+
+const sum = (a, b) => a + b; 
+const addFive = num => num + 5;
+const argTimesTwo = num => num * 2;
 
 /**
  * ### Challenge `carMaker`

@@ -155,8 +155,9 @@ function get3rdCar(inventory) {
  * For example, if getCarInfoByIndex is invoked with the inventory and the number 0,
  * it will return `This is a Lincoln Navigator`.
  */
-function getCarInfoByIndex() {
-  return `This is a ${getCarInfoByIndex[0].carInfo.car_make} ${getCarInfoByIndex[0].carInfo.car_model}`;
+function getCarInfoByIndex(inventory, index) {
+  const object = inventory[index];
+  return `This is a ${object.car_make} ${object.car_model}`;
 }
 
 console.log(getCarInfoByIndex);
@@ -213,10 +214,10 @@ console.log(getCarInfoById);
  */
 
 function sortCarInventory(inventory) {
-  inventory.sort();
+  return inventory.sort();
 }
 
-console.log(sortCarInventory);
+// console.log(s);
 
 
 /**

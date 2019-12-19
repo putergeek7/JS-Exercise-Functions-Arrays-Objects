@@ -70,7 +70,6 @@ function getName(personInfo) {
 }
 
 
-
 /**
  * ### Challenge `makeSmartPerson`
  * 

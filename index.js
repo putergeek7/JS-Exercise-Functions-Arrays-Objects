@@ -44,15 +44,11 @@ email: "leia@leia.com""
  * @param {any} email
  */
 
-
-const personInfo = {
-  id: 7,
-  name: 'Leia',
-  email: 'leia@leia.com'
+function makePersonObject(id, name, email ) {
+    return {id, name, email};
 }
 
-console.log(personInfo);
-
+console.log(makePersonObject(5, 'Leia', 'leia@leia.com'));
 
 
 /**
@@ -95,13 +91,13 @@ function makeSmartPerson(name) {
       return num1 + num2;
     },
     speak: function () {
-      return `Hello, my name is ${personInfo.name}`
+      return `Hello, my name is ${makeSmartPerson.name}`;
     }
   }
 }
 
-console.log(makeSmartPerson);
-
+console.log(makeSmartPerson.name);
+console.log(makeSmartPerson("Aksha"));
 
 
 
@@ -159,8 +155,8 @@ function get3rdCar(inventory) {
  * For example, if getCarInfoByIndex is invoked with the inventory and the number 0,
  * it will return `This is a Lincoln Navigator`.
  */
-function getCarInfoByIndex(inventory, index) {
-  return `This is a ${inventory[index].carInfo.car_make} ${inventory[index].carInfo.car_model}`;
+function getCarInfoByIndex() {
+  return `This is a ${getCarInfoByIndex[0].carInfo.car_make} ${getCarInfoByIndex[0].carInfo.car_model}`;
 }
 
 console.log(getCarInfoByIndex);
